@@ -4,6 +4,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import * as Sentry from "@sentry/react";
 import { BrowserTracing } from "@sentry/tracing";
+import { BrowserRouter } from "react-router-dom";
 
 if(process.env.REACT_APP_SENTRY_DSN) {
   Sentry.init({
@@ -21,7 +22,9 @@ if(process.env.REACT_APP_SENTRY_DSN) {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
 
