@@ -10,6 +10,10 @@ const useClient = () => {
     }
 
     if (auth.isAuth) {
+      if (!auth.getAccessToken()) {
+        auth.logout();
+        throw new Error('Token is invalid');
+      }
       Object.assign(headers, {'Authorization': 'Bearer ' + auth.getAccessToken()})
     }
 
